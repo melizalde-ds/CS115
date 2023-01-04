@@ -26,15 +26,15 @@ public class Lab1a {
         do {
             System.out.print("\nPlease enter a number (or hit the <Enter> key to stop): ");
             input = sIn.nextLine();
-            if (!"".equals(input)) {
-                try {
+            try {
+                if (!"".equals(input)) {
                     numList.add(Integer.parseInt(input));
-                } catch (Exception e) {
-                    System.out.println("Invalid response.  '"+input+"' is not a number.");
+                }  else {
+                    dW1 = false;
                 }
-            } else {
-                dW1 = false;
-            }
+            } catch (Exception e) {
+                System.out.println("Invalid response.  '"+input+"' is not a number.");
+            }        
         } while (dW1);
 
         int sum = addNumbers(numList);
@@ -42,6 +42,7 @@ public class Lab1a {
 
         int largest = largestNumber(numList);
         System.out.println("The biggest number in the list is: "+largest);
+
         // Scanner Close
         sIn.close();
     }
@@ -49,7 +50,7 @@ public class Lab1a {
     public static int addNumbers(ArrayList<Integer> numList) {
         int sum = 0;
         for (int num : numList) {
-            sum =+ num;
+            sum = num + sum;
         }
         return sum;
     }
