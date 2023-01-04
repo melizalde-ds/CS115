@@ -1,6 +1,6 @@
 /**
 * File: Lab1a.java
-* Description: Java Basics Review
+* Description: Java review
 * Lessons Learned: This helped me to review what I've learned last semester.
 * Instructor's Name: Barbara Chamberlin
 *
