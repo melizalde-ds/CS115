@@ -12,6 +12,7 @@ package week1;
 
 import java.util.Scanner;
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class Lab1a {
     public static void main(String[] args) {
@@ -46,12 +47,17 @@ public class Lab1a {
     }
 
     public static int addNumbers(ArrayList<Integer> numList) {
-
-        return 0;
+        int sum = 0;
+        for (int num : numList) {
+            sum =+ num;
+        }
+        return sum;
     }
 
     public static int largestNumber(ArrayList<Integer> numList) {
-
-        return 0;
+        int lar;
+        Collections.sort(numList);
+        lar = numList.get(numList.size()-1);
+        return lar;
     }
 }
