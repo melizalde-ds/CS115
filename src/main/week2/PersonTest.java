@@ -47,7 +47,7 @@ public class PersonTest {
     @Test
     public void testSetPerson(){
         Person p = new Person("Jenny", "2003-05-05", "F", "801-867-5309");
-        p.setDob("1998-01-17");
+        p.setDob("1995-01-17");
         String dob = p.getDob();
         assertEquals(dob,"1998-01-17");
     }
