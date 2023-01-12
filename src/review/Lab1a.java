@@ -8,7 +8,7 @@
 * @since: 01/02/2022
 */
 
-package main.review;
+package review;
 
 // Importing Libraries
 import java.util.Scanner;
