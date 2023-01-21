@@ -17,7 +17,7 @@ public class PersonTest {
     // Getters Test
     // Test getName
     @Test
-    public void testName() {
+    public void testGetName() {
         Person p = new Person("Jenny", "2003-05-05", "F", "801-867-5309");
         String name = p.getName();
         assertEquals(name, "Jenny");
@@ -25,7 +25,7 @@ public class PersonTest {
 
     // Test getDob
     @Test
-    public void testPerson() {
+    public void testGetPerson() {
         Person p = new Person("Jenny", "2003-05-05", "F", "801-867-5309");
         String dob = p.getDob();
         assertEquals(dob, "2003-05-05");
@@ -33,7 +33,7 @@ public class PersonTest {
 
     // Test getGender
     @Test
-    public void testGender() {
+    public void testGetGender() {
         Person p = new Person("Jenny", "2003-05-05", "F", "801-867-5309");
         String gender = p.getGender();
         assertEquals(gender, "F");
@@ -41,7 +41,7 @@ public class PersonTest {
 
     // Test getPhone
     @Test
-    public void testPhone() {
+    public void testGetPhone() {
         Person p = new Person("Jenny", "2003-05-05", "F", "801-867-5309");
         String name = p.getPhone();
         assertEquals(name, "801-867-5309");
