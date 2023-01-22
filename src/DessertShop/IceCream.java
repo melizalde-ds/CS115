@@ -1,4 +1,4 @@
-package week3;
+package DessertShop;
 
 public class IceCream extends DessertItem{
     private int scoopCount;

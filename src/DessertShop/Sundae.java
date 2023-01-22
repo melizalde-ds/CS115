@@ -1,6 +1,6 @@
-package week3;
+package DessertShop;
 
-public class Sundae extends DessertItem{
+public class Sundae extends IceCream{
     private String toppingName;
     private double toppingPrice;
 
@@ -10,8 +10,8 @@ public class Sundae extends DessertItem{
         this.toppingPrice = 0;
     }
 
-    public Sundae(String name, String toppingName, double toppingPrice){
-        super(name);
+    public Sundae(String name, int scoopCount, double pricePerScoop, String toppingName, double toppingPrice){
+        super(toppingName, scoopCount, pricePerScoop);
         this.toppingName = toppingName;
         this.toppingPrice = toppingPrice;
     }

@@ -1,4 +1,4 @@
-package week3;
+package DessertShop;
 
 public class Candy extends DessertItem {
     private double candyWeight;

@@ -1,4 +1,4 @@
-package week3;
+package DessertShop;
 
 public class Cookie extends DessertItem {
     private int cookieQty;
@@ -10,7 +10,7 @@ public class Cookie extends DessertItem {
         this.pricePerDozen = 0;
     }
 
-    public Cookie(String name, int cookieQty, int pricePerDozen) {
+    public Cookie(String name, int cookieQty, double pricePerDozen) {
         super(name);
         this.cookieQty = cookieQty;
         this.pricePerDozen = pricePerDozen;
