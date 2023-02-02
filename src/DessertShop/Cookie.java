@@ -1,50 +1,100 @@
+/** 
+* File: Cookie.java
+* Description: This class extends from DessertItem and creates a Cookie Object with the correspondet setters and getters.
+* Instructor's Name: Barbara Chamberlin
+* 
+* @author: Miguel Elizalde
+* @since: 01/30/2023
+*/
 package DessertShop;
 
 public class Cookie extends DessertItem {
+    // Class variables
     private int cookieQty;
     private double pricePerDozen;
 
+    /**
+     * Constructor Name: Cookie()
+     * Description: Default constructor
+     * Returns: Cookie Object
+     * 
+     * @return Cookie Object
+     */
     public Cookie() {
-        super();
+        super("Cookie");
         this.cookieQty = 0;
         this.pricePerDozen = 0;
     }
 
+    /**
+     * Constructor Name: Person(parameters)
+     * Description: Candy constructor
+     * Returns: Candy Object
+     * 
+     * @param String name Name of the Cookie
+     * @param int    cookieQty How many cookies
+     * @param double pricePerDozen Price per Dozen cookies
+     * @return Cookie Obejct
+     */
     public Cookie(String name, int cookieQty, double pricePerDozen) {
         super(name);
-        this.cookieQty = cookieQty;
-        this.pricePerDozen = pricePerDozen;
+        this.cookieQty = 0;
+        this.setCookieQty(cookieQty);
+        this.pricePerDozen = 0;
+        this.setPricePerDozen(pricePerDozen);
     }
 
+    /**
+     * Getter
+     * Method Name: getCookieQty
+     * Description: Returns the quantity of the cookies
+     * Returns: cookieQty
+     * 
+     * @return int cookieQty
+     */
     public int getCookieQty() {
         return cookieQty;
     }
 
+    /**
+     * Getter
+     * Method Name: getPricePerDozen
+     * Description: Returns the price per Dozen Cookies
+     * Returns: double pricePerDozen
+     * 
+     * @return double pricePerDozen
+     */
     public double getPricePerDozen() {
         return pricePerDozen;
     }
 
+    /**
+     * Setter
+     * Method Names: setCookieQty
+     * Description: Changes or sets how many cookies are
+     * Returns: void
+     * 
+     * @param int cookieQty
+     * @return void
+     */
     public void setCookieQty(int cookieQty) {
-        boolean dw1 = false;
-        do {
-            if (cookieQty < 0) {
-                System.out.println("Please enter a postive number");
-            } else {
-                this.cookieQty = cookieQty;
-                dw1 = true;
-            }
-        } while (!dw1);
+        if (cookieQty >= 0) {
+            this.cookieQty = cookieQty;
+        }
     }
 
+    /**
+     * Setter
+     * Method Names: setPricePerDozen
+     * Description: Changes or sets the price per dozen cookies.
+     * Returns: void
+     * 
+     * @param int cookieQty
+     * @return void
+     */
     public void setPricePerDozen(double pricePerDozen) {
-        boolean dw1 = false;
-        do {
-            if (pricePerDozen < 0) {
-                System.out.println("Please enter a postive number");
-            } else {
-                this.pricePerDozen = pricePerDozen;
-                dw1 = true;
-            }
-        } while (!dw1);
+        if (pricePerDozen >= 0) {
+            this.pricePerDozen = pricePerDozen;
+        }
     }
 }

@@ -1,49 +1,102 @@
+/** 
+* File: Sundae.java
+* Description: This class extends from IceCream and creates a Sundae Object with it's setters and getters.
+* Instructor's Name: Barbara Chamberlin
+* 
+* @author: Miguel Elizalde
+* @since: 01/30/2023
+*/
 package DessertShop;
 
-public class Sundae extends IceCream{
+public class Sundae extends IceCream {
     private String toppingName;
     private double toppingPrice;
 
-    public Sundae(){
+    /**
+     * Constructor Name: Sundae()
+     * Description: Default constructor
+     * Returns: Sundae Object
+     * 
+     * @return Sundae Object
+     */
+    public Sundae() {
         super();
-        this.toppingName = "";
+        this.setName("Sundae");
+        this.toppingName = "Topping";
         this.toppingPrice = 0;
     }
 
-    public Sundae(String name, int scoopCount, double pricePerScoop, String toppingName, double toppingPrice){
+    /**
+     * Constructor Name: Sundae(parameters)
+     * Description: Sundae constructor
+     * Returns: Sundae Object
+     * 
+     * @param String name Name of the Dessert
+     * @param int    scoopCount How many cookies
+     * @param double pricePerScoop Price per Dozen cookies
+     * @param String toppingName Name of the topping
+     * @param double toppingPrice Price of toppings
+     * @return IceCream Obejct
+     */
+    public Sundae(String name, int scoopCount, double pricePerScoop, String toppingName, double toppingPrice) {
         super(toppingName, scoopCount, pricePerScoop);
-        this.toppingName = toppingName;
-        this.toppingPrice = toppingPrice;
+        this.toppingName = "";
+        this.setToppingName(toppingName);
+        this.toppingPrice = 0;
+        this.setToppingPrice(toppingPrice);
     }
 
+    /**
+     * Getter
+     * Method Name: getToppingName()
+     * Description: Returns the name of the topping
+     * Returns: toppingName
+     * 
+     * @return String toppingName
+     */
     public String getToppingName() {
         return toppingName;
     }
+
+    /**
+     * Getter
+     * Method Name: getToppingPrice()
+     * Description: Returns the price of the Topping
+     * Returns: toppingPrice
+     * 
+     * @return doubleToppingPrice
+     */
     public double getToppingPrice() {
         return toppingPrice;
     }
 
+    /**
+     * Setter
+     * Method Names: setToppingNamme
+     * Description: Changes or set the name of the topping
+     * Returns: void
+     * 
+     * @param String toppingName
+     * @return void
+     */
     public void setToppingName(String toppingName) {
-        boolean dw1 = false;
-        do {
-            if (toppingName.equals("")) {
-                System.out.println("Please enter a valid name");
-            } else {
-                this.toppingName = toppingName;
-                dw1 = true;
-            }
-        } while (!dw1);
+        if (!toppingName.equals("")) {
+            this.toppingName = toppingName;
+        }
     }
 
+    /**
+     * Setter
+     * Method Names: setToppingPrice
+     * Description: Changes or sets he price of the topping
+     * Returns: void
+     * 
+     * @param double toppingPrice
+     * @return void
+     */
     public void setToppingPrice(double toppingPrice) {
-        boolean dw1 = false;
-        do {
-            if (toppingPrice < 0) {
-                System.out.println("Please enter a postive number");
-            } else {
-                this.toppingPrice = toppingPrice;
-                dw1 = true;
-            }
-        } while (!dw1);
+        if (toppingPrice >= 0) {
+            this.toppingPrice = toppingPrice;
+        }
     }
 }
