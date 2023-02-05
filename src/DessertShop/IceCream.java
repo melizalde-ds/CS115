@@ -96,4 +96,16 @@ public class IceCream extends DessertItem {
             this.pricePerScoop = pricePerScoop;
         }
     }
+
+    /**
+     * Method Name: calculateCost
+     * Description: This method override the super method and multiplies the quantity and the scoopCount
+     * Returns: double cost
+     * 
+     * @return double scoopCount * pricePerScoop
+     */
+    @Override
+    public double calculateCost() {
+        return scoopCount * pricePerScoop;
+    }
 }

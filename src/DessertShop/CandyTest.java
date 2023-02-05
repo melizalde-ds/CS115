@@ -4,7 +4,7 @@
 * Instructor's Name: Barbara Chamberlin
 * 
 * @author: Miguel Elizalde
-* @since: 02/01/2023
+* @since: 2/3/2023
 */
 package DessertShop;
 
@@ -79,5 +79,23 @@ public class CandyTest {
         double pPP = c.getPricePerPound();
         double epsilon = 0.0000001d;
         assertEquals(pPP, .1, epsilon);
+    }
+
+    // Test calculateCost
+    @Test
+    public void calculateCostTest() {
+        Candy c = new Candy("Skittles", .75, .1);
+        double cC = c.calculateCost();
+        double epsilon = 0.0000001d;
+        assertEquals(cC, .075, epsilon);
+    }
+
+    // Test calculateTax
+    @Test
+    public void calculateTaxTest() {
+        Candy c = new Candy("Skittles", .75, .1);
+        double cCT = c.calculateTax(c.calculateCost());
+        double epsilon = 0.0000001d;
+        assertEquals(cCT, .0054375, epsilon);
     }
 }

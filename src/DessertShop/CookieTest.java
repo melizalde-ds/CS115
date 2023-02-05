@@ -77,4 +77,22 @@ public class CookieTest {
         double epsilon = 0.000001d;
         assertEquals(pPD, .67, epsilon);
     }
+
+    // Test calculateCost
+    @Test
+    public void calculateCostTest() {
+        Cookie c = new Cookie("Oreo", 48, .67);
+        double cC = c.calculateCost();
+        double epsilon = 0.0000001d;
+        assertEquals(cC, 2.68, epsilon);
+    }
+
+    // Test calculateTax
+    @Test
+    public void calculateTaxTest() {
+        Cookie c = new Cookie("Oreo", 48, .67);
+        double cCT = c.calculateTax(c.calculateCost());
+        double epsilon = 0.0000001d;
+        assertEquals(cCT, 0.1943, epsilon);
+    }
 }

@@ -77,4 +77,22 @@ public class IceCreamTest {
         double epsilon = 0.000001d;
         assertEquals(pPS, .8, epsilon);
     }
+
+    // Test calculateCost
+    @Test
+    public void calculateCostTest() {
+        IceCream iC = new IceCream("Chocolate-Mint", 3, .8);
+        double cC = iC.calculateCost();
+        double epsilon = 0.000001d;
+        assertEquals(cC, 2.4, epsilon);
+    }
+
+    // Test calculateTax
+    @Test
+    public void calculateTaxTest() {
+        IceCream iC = new IceCream("Chocolate-Mint", 3, .8);
+        double cCT = iC.calculateTax(iC.calculateCost());
+        double epsilon = 0.000001d;
+        assertEquals(cCT, 0.174, epsilon);
+    }
 }

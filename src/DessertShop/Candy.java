@@ -4,7 +4,7 @@
 * Instructor's Name: Barbara Chamberlin
 * 
 * @author: Miguel Elizalde
-* @since: 01/30/2023
+* @since: 2/3/2023
 */
 package DessertShop;
 
@@ -96,5 +96,17 @@ public class Candy extends DessertItem {
         if (pricePerPound >= 0) {
             this.pricePerPound = pricePerPound;
         }
+    }
+
+    /**
+     * Method Name: calculateCost
+     * Description: This method override the super method and multiplies the weight and the price per pound
+     * Returns: double cost
+     * 
+     * @return double candyWeight * pricePerPound
+     */
+    @Override
+    public double calculateCost() {
+        return candyWeight * pricePerPound;
     }
 }

@@ -97,4 +97,17 @@ public class Cookie extends DessertItem {
             this.pricePerDozen = pricePerDozen;
         }
     }
+
+    /**
+     * Method Name: calculateCost
+     * Description: This method override the super method and multiplies the
+     * quantity and the price per dozen
+     * Returns: double cost
+     * 
+     * @return double candyWeight * pricePerPound
+     */
+    @Override
+    public double calculateCost() {
+        return (cookieQty * pricePerDozen) / 12;
+    }
 }

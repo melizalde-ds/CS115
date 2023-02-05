@@ -4,13 +4,14 @@
 * Instructor's Name: Barbara Chamberlin
 * 
 * @author: Miguel Elizalde
-* @since: 01/22/2023
+* @since: 2/3/2023
 */
 package DessertShop;
 
-public class DessertItem {
-    // Class variable
+public abstract class DessertItem {
+    // Class attributes
     private String name;
+    private double taxPercent = 7.25;
 
     /**
      * Constructor Name: DessertItem()
@@ -32,7 +33,7 @@ public class DessertItem {
      * @return DessertItem Object
      */
     public DessertItem(String name) {
-        this.name = name;
+        this.setName(name);
     }
 
     /**
@@ -51,6 +52,19 @@ public class DessertItem {
     }
 
     /**
+     * Setter
+     * Method Names: setTaxPercent
+     * Description: Changes oor sets the tax Percent
+     * Returns: void
+     * 
+     * @param double taxPercent
+     * @return void
+     */
+    public void setTaxPercent(double taxPercent) {
+        this.taxPercent = taxPercent;
+    }
+
+    /**
      * Getter
      * Method Names: getName
      * Description: Returns the name of the Dessert
@@ -60,5 +74,32 @@ public class DessertItem {
      */
     public String getName() {
         return name;
+    }
+
+    /**
+     * Getter
+     * Method Names: getTaxPercent
+     * Description: Returns the name of the Dessert
+     * Returns: String
+     * 
+     * @return String name
+     */
+    public double getTaxPercent() {
+        return taxPercent;
+    }
+
+    // Abstract Method calculateCost()
+    public abstract double calculateCost();
+
+    /**
+     * Method Names: calculateTax
+     * Description: This method calculate the taxes
+     * Returns: taxparcent
+     * 
+     * @param double cost
+     * @return double tax
+     */
+    public double calculateTax(double cost) {
+        return (taxPercent / 100) * cost;
     }
 }

@@ -79,4 +79,22 @@ public class SundaeTest {
         double epsilon = 0.000001d;
         assertEquals(tP, .6, epsilon);
     }
+
+    // Test calculateCost
+    @Test
+    public void calculateCostTest() {
+        Sundae s = new Sundae("Chocolate-Vanilla", 3, .5, "Chocolate", .6);
+        double cC = s.calculateCost();
+        double epsilon = 0.000001d;
+        assertEquals(cC, 2.1, epsilon);
+    }
+
+    // Test calculateTax
+    @Test
+    public void calculateTaxTest() {
+        Sundae s = new Sundae("Chocolate-Vanilla", 3, .5, "Chocolate", .6);
+        double cCT = s.calculateTax(s.calculateCost());
+        double epsilon = 0.000001d;
+        assertEquals(cCT, 0.15225, epsilon);
+    }
 }

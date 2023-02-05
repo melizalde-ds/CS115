@@ -4,8 +4,9 @@
 * Instructor's Name: Barbara Chamberlin
 * 
 * @author: Miguel Elizalde
-* @since: 02/01/2023
+* @since: 2/3/2023
 */
+
 package DessertShop;
 
 import static org.junit.Assert.assertEquals;
@@ -16,27 +17,55 @@ public class DessertItemTest {
     // Test Constructor
     @Test
     public void constructorTest() {
-        DessertItem dI = new DessertItem();
-        String name = dI.getName();
-        assertEquals(name, "Dessert");
+        Candy c = new Candy();
+        String name = c.getName();
+        assertEquals(name, "Candy");
     }
 
     // Getters Test
     // Test getName
     @Test
     public void getNameTest() {
-        DessertItem dI = new DessertItem("Apple Pie");
+        DessertItem dI = new Candy("Candy Test", 5.5, 4.5);
         String name = dI.getName();
-        assertEquals(name, "Apple Pie");
+        assertEquals(name, "Candy Test");
+    }
+
+    // Test getName
+    @Test
+    public void getTaxPercentTest() {
+        DessertItem dI = new Candy("Candy Test", 5.5, 4.5);
+        double tax = dI.getTaxPercent();
+        double epsylon = 0.000001d;
+        assertEquals(tax, 7.25, epsylon);
     }
 
     // Setters Test
     // Test setName
     @Test
     public void setNameTest() {
-        DessertItem dI = new DessertItem("Apple Pie");
+        DessertItem dI = new Candy("Candy Test", 5.5, 4.5);
         dI.setName("Raisin Cookie");
         String name = dI.getName();
         assertEquals(name, "Raisin Cookie");
+    }
+
+    // Test setName void
+    @Test
+    public void setNameTestVoid() {
+        DessertItem dI = new Candy("Candy Test", 5.5, 4.5);
+        dI.setName("");
+        String name = dI.getName();
+        assertEquals(name, "Candy Test");
+    }
+
+    // Test setTacPercent
+    @Test
+    public void setTaxPercentTest() {
+        DessertItem dI = new Candy("Candy Test", 5.5, 4.5);
+        dI.setTaxPercent(8.5);
+        double tax = dI.getTaxPercent();
+        double epsylon = 0.000001d;
+        assertEquals(tax, 8.5, epsylon);
     }
 }
