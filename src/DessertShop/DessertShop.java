@@ -17,7 +17,7 @@ public abstract class DessertShop {
         double orderTotal = 0;
         double totalTax = 0;
 
-        /*        Scanner sIn = new Scanner(System.in);
+        Scanner sIn = new Scanner(System.in);
         String choice;
         DessertItem orderItem;
 
@@ -62,7 +62,6 @@ public abstract class DessertShop {
             } // end of if (choice.equals(""))
         } // end of while (!done)
         System.out.println("\n");
-        */
 
         // Adds objects to the class
         order1.add(new Candy("Candy Corn", 1.5, .25));
@@ -72,20 +71,24 @@ public abstract class DessertShop {
         order1.add(new Sundae("Vanilla", 3, .69, "Hot Fudge", 1.29));
         order1.add(new Cookie("Oatmeal Raisin", 2, 3.45));
 
-        // Prints them to the console
-        for (int i = 0; i < order1.itemCount(); i++) {
-            String dessertName = order1.getOrder().get(i).getName();
-            double totalCost = order1.getOrder().get(i).calculateCost();
-            orderTotal += totalCost;
-            double tax = order1.getOrder().get(i).calculateTax(totalCost);
-            totalTax += tax;
-            System.out.printf("%-25s$%-8.2f[Tax: $%.2f]\n", dessertName, totalCost, tax);
-        }
-        System.out.println("------------------------------------------------------");
-        System.out.printf("%-25s$%-8.2f[Tax: $%.2f]\n", "Order Subtotals", orderTotal, totalTax);
-        System.out.printf("%-25s$%-8.2f\n", "Order Total:", orderTotal + totalTax);
-        System.out.println("\nTotal number of items in order: " + order1.itemCount());
-
+        /*
+         * / Prints them to the console
+         * for (int i = 0; i < order1.itemCount(); i++) {
+         * String dessertName = order1.getOrder().get(i).getName();
+         * double totalCost = order1.getOrder().get(i).calculateCost();
+         * orderTotal += totalCost;
+         * double tax = order1.getOrder().get(i).calculateTax(totalCost);
+         * totalTax += tax;
+         * System.out.printf("%-25s$%-8.2f[Tax: $%.2f]\n", dessertName, totalCost, tax);
+         * }
+         * System.out.println("------------------------------------------------------");
+         * System.out.printf("%-25s$%-8.2f[Tax: $%.2f]\n", "Order Subtotals",
+         * orderTotal, totalTax);
+         * System.out.printf("%-25s$%-8.2f\n", "Order Total:", orderTotal + totalTax);
+         * System.out.println("\nTotal number of items in order: " +
+         * order1.itemCount());
+         */
+        System.out.println(order1);
     }
 
     private static DessertItem userPromptCandy() {
@@ -95,11 +98,11 @@ public abstract class DessertShop {
         Scanner sI = new Scanner(System.in);
 
         System.out.print("Enter the name of the Candy: ");
-        name = sI.next();
+        name = sI.nextLine();
         System.out.print("Enter the weight of the Candy: ");
-        weight = Double.parseDouble(sI.next());
+        weight = Double.parseDouble(sI.nextLine());
         System.out.print("Enter the price per pound: ");
-        price = Double.parseDouble(sI.next());
+        price = Double.parseDouble(sI.nextLine());
 
         return new Candy(name, weight, price);
     }
@@ -111,11 +114,11 @@ public abstract class DessertShop {
 
         Scanner sI = new Scanner(System.in);
         System.out.print("Enter the type of Cookie: ");
-        name = sI.next();
+        name = sI.nextLine();
         System.out.print("Enter the quantity purchased: ");
-        qty = Integer.parseInt(sI.next());
+        qty = Integer.parseInt(sI.nextLine());
         System.out.print("Enter the price per dozen: ");
-        pPD = Double.parseDouble(sI.next());
+        pPD = Double.parseDouble(sI.nextLine());
 
         return new Cookie(name, qty, pPD);
     }
@@ -127,11 +130,11 @@ public abstract class DessertShop {
         double pricePS;
 
         System.out.print("Enter the type of Ice Cream used: ");
-        name = sI.next();
+        name = sI.nextLine();
         System.out.print("Enter the number of scoops: ");
-        scoopQty = Integer.parseInt(sI.next());
+        scoopQty = Integer.parseInt(sI.nextLine());
         System.out.print("Enter the price per scoop: ");
-        pricePS = Double.parseDouble(sI.next());
+        pricePS = Double.parseDouble(sI.nextLine());
 
         return new IceCream(name, scoopQty, pricePS);
     }
@@ -145,15 +148,15 @@ public abstract class DessertShop {
         double tPrice;
 
         System.out.print("Enter the type of Ice Cream: ");
-        name = sI.next();
+        name = sI.nextLine();
         System.out.print("Enter the number of scoops: ");
-        scoopQty = Integer.parseInt(sI.next());
+        scoopQty = Integer.parseInt(sI.nextLine());
         System.out.print("Enter the price per scoop: ");
-        pricePS = Double.parseDouble(sI.next());
+        pricePS = Double.parseDouble(sI.nextLine());
         System.out.print("Enter the kind of topping used: ");
         topping = sI.nextLine();
         System.out.print("Enter the price for the topping: ");
-        tPrice = Double.parseDouble(sI.next());
+        tPrice = Double.parseDouble(sI.nextLine());
 
         return new Sundae(name, scoopQty, pricePS, topping, tPrice);
     }

@@ -39,7 +39,7 @@ public class Sundae extends IceCream {
      * @return IceCream Obejct
      */
     public Sundae(String name, int scoopCount, double pricePerScoop, String toppingName, double toppingPrice) {
-        super(toppingName, scoopCount, pricePerScoop);
+        super(name, scoopCount, pricePerScoop);
         this.toppingName = "";
         this.setToppingName(toppingName);
         this.toppingPrice = 0;
@@ -103,5 +103,13 @@ public class Sundae extends IceCream {
     @Override
     public double calculateCost() {
         return super.calculateCost() + toppingPrice;
+    }
+
+    @Override
+    public String toString() {
+        double cost = calculateCost();
+        return String.format("%s\n%d scoops of %s ice cream @ $%.2f/scoop\n%s topping @ $%-25.2f:$%-8.2f[Tax: $%.2f]\n",
+                toppingName + getName(), getScoopCount(), getName(),
+                getPricePerScoop(), toppingName, toppingPrice,cost, calculateTax(cost));
     }
 }

@@ -99,7 +99,8 @@ public class IceCream extends DessertItem {
 
     /**
      * Method Name: calculateCost
-     * Description: This method override the super method and multiplies the quantity and the scoopCount
+     * Description: This method override the super method and multiplies the
+     * quantity and the scoopCount
      * Returns: double cost
      * 
      * @return double scoopCount * pricePerScoop
@@ -107,5 +108,12 @@ public class IceCream extends DessertItem {
     @Override
     public double calculateCost() {
         return scoopCount * pricePerScoop;
+    }
+
+    @Override
+    public String toString() {
+        double cost = calculateCost();
+        return String.format("%s\n%d scoops @ $%-25.2f/scoop:$%-8.2f[Tax: $%.2f]\n", getName(), scoopCount,
+                pricePerScoop, cost, calculateTax(cost));
     }
 }

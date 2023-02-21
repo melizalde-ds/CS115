@@ -67,11 +67,22 @@ public class Order {
         return totalCost;
     }
 
-    public double orderTax(){
+    public double orderTax() {
         double totalTax = 0;
         for (DessertItem dessertItem : order) {
             totalTax += dessertItem.calculateTax(dessertItem.calculateCost());
         }
         return totalTax;
+    }
+
+    @Override
+    public String toString() {
+        String finalOutput = "";
+        finalOutput += "------------------------Receipt-------------------";
+        for (int i = 0; i < order.size(); i++) {
+            finalOutput += order.get(i).toString();
+        }
+        finalOutput += finalOutput += "--------------------------------------------------";
+        return finalOutput;
     }
 }

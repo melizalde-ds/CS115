@@ -100,7 +100,8 @@ public class Candy extends DessertItem {
 
     /**
      * Method Name: calculateCost
-     * Description: This method override the super method and multiplies the weight and the price per pound
+     * Description: This method override the super method and multiplies the weight
+     * and the price per pound
      * Returns: double cost
      * 
      * @return double candyWeight * pricePerPound
@@ -108,5 +109,14 @@ public class Candy extends DessertItem {
     @Override
     public double calculateCost() {
         return candyWeight * pricePerPound;
+    }
+
+    @Override
+    public String toString() {
+        String line1 = getName();
+        String line2Pt1 = getCandyWeight()+" lbs. @ "+getPricePerPound()+"/lb.:"; 
+        double cost = calculateCost();
+        return String.format("%s\n%.2f lbs @ $%.2f/lb.:$%-8.2f[Tax: $%.2f]\n", getName(), candyWeight, pricePerPound,
+                cost, calculateTax(cost));
     }
 }

@@ -110,4 +110,11 @@ public class Cookie extends DessertItem {
     public double calculateCost() {
         return (cookieQty * pricePerDozen) / 12;
     }
+
+    @Override
+    public String toString() {
+        double cost = calculateCost();
+        return String.format("%s\n%d cookies @ $%-25.2f/dozen:$%-8.2f[Tax: $%.2f]\n", getName(), cookieQty, pricePerDozen, cost,
+                calculateTax(cost));
+    }
 }
