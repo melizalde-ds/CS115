@@ -112,8 +112,10 @@ public class IceCream extends DessertItem {
 
     @Override
     public String toString() {
-        double cost = calculateCost();
-        return String.format("%s\n%d scoops @ $%-25.2f/scoop:$%-8.2f[Tax: $%.2f]\n", getName(), scoopCount,
-                pricePerScoop, cost, calculateTax(cost));
+        String line1 = getName();
+        String line2Pt1 = String.format("%d scoops @ $%.2f/scoop:", getScoopCount(), getPricePerScoop());
+        String line2Pt2 = String.format("$%.2f", calculateCost());
+        String line2Pt3 = String.format("[Tax: $%.2f]", calculateTax(calculateCost()));
+        return String.format("%s\n\t%-45s%s%17s", line1, line2Pt1, line2Pt2, line2Pt3);
     }
 }

@@ -71,24 +71,21 @@ public abstract class DessertShop {
         order1.add(new Sundae("Vanilla", 3, .69, "Hot Fudge", 1.29));
         order1.add(new Cookie("Oatmeal Raisin", 2, 3.45));
 
-        /*
-         * / Prints them to the console
-         * for (int i = 0; i < order1.itemCount(); i++) {
-         * String dessertName = order1.getOrder().get(i).getName();
-         * double totalCost = order1.getOrder().get(i).calculateCost();
-         * orderTotal += totalCost;
-         * double tax = order1.getOrder().get(i).calculateTax(totalCost);
-         * totalTax += tax;
-         * System.out.printf("%-25s$%-8.2f[Tax: $%.2f]\n", dessertName, totalCost, tax);
-         * }
-         * System.out.println("------------------------------------------------------");
-         * System.out.printf("%-25s$%-8.2f[Tax: $%.2f]\n", "Order Subtotals",
-         * orderTotal, totalTax);
-         * System.out.printf("%-25s$%-8.2f\n", "Order Total:", orderTotal + totalTax);
-         * System.out.println("\nTotal number of items in order: " +
-         * order1.itemCount());
-         */
+        // Prints them to the console
+        for (int i = 0; i < order1.itemCount(); i++) {
+            double totalCost = order1.getOrder().get(i).calculateCost();
+            orderTotal += totalCost;
+            double tax = order1.getOrder().get(i).calculateTax(totalCost);
+            totalTax += tax;
+        }
+        
         System.out.println(order1);
+        System.out.println("Total number of items in order: " +
+                order1.itemCount());
+        System.out.printf("%-53s$%-8.2f[Tax: $%.2f]\n", "Order Subtotals",
+                orderTotal, totalTax);
+        System.out.printf("%-53s$%-8.2f\n", "Order Total:", orderTotal + totalTax);
+        System.out.println("----------------------------------------------------------------------------");
     }
 
     private static DessertItem userPromptCandy() {

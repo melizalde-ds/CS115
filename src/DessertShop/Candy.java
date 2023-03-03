@@ -114,9 +114,9 @@ public class Candy extends DessertItem {
     @Override
     public String toString() {
         String line1 = getName();
-        String line2Pt1 = getCandyWeight()+" lbs. @ "+getPricePerPound()+"/lb.:"; 
-        double cost = calculateCost();
-        return String.format("%s\n%.2f lbs @ $%.2f/lb.:$%-8.2f[Tax: $%.2f]\n", getName(), candyWeight, pricePerPound,
-                cost, calculateTax(cost));
+        String line2Pt1 = String.format("%.2f lbs. @ $%.2f/dozen:", getCandyWeight(),getPricePerPound());
+        String line2Pt2 = String.format("$%.2f", calculateCost());
+        String line2Pt3 = String.format("[Tax: $%.2f]", calculateTax(calculateCost()));
+        return String.format("%s\n\t%-45s%s%17s", line1, line2Pt1, line2Pt2, line2Pt3);
     }
 }

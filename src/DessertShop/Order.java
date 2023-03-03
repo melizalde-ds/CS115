@@ -78,11 +78,12 @@ public class Order {
     @Override
     public String toString() {
         String finalOutput = "";
-        finalOutput += "------------------------Receipt-------------------";
+        finalOutput += "-------------------------------------Receipt--------------------------------\n";
         for (int i = 0; i < order.size(); i++) {
             finalOutput += order.get(i).toString();
+            finalOutput += "\n";
         }
-        finalOutput += finalOutput += "--------------------------------------------------";
+        finalOutput += "----------------------------------------------------------------------------";
         return finalOutput;
     }
 }

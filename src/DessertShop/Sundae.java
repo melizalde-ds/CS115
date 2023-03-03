@@ -107,9 +107,11 @@ public class Sundae extends IceCream {
 
     @Override
     public String toString() {
-        double cost = calculateCost();
-        return String.format("%s\n%d scoops of %s ice cream @ $%.2f/scoop\n%s topping @ $%-25.2f:$%-8.2f[Tax: $%.2f]\n",
-                toppingName + getName(), getScoopCount(), getName(),
-                getPricePerScoop(), toppingName, toppingPrice,cost, calculateTax(cost));
+        String line1 = getName();
+        String line2 = String.format("%d scoops @ $%.2f/scoop:", getScoopCount(), getPricePerScoop());
+        String line3Pt1 = String.format("%s topping @ $%.2f:", getToppingName(), getToppingPrice());
+        String line3Pt2 = String.format("$%.2f", calculateCost());
+        String line3Pt3 = String.format("[Tax: $%.2f]", calculateTax(calculateCost()));
+        return String.format("%s\n\t%s\n\t%-45s%s%17s", line1, line2, line3Pt1, line3Pt2, line3Pt3);
     }
 }
