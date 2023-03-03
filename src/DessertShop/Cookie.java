@@ -24,6 +24,7 @@ public class Cookie extends DessertItem {
         super("Cookie");
         this.cookieQty = 0;
         this.pricePerDozen = 0;
+        this.setPackaging("");
     }
 
     /**
@@ -42,6 +43,7 @@ public class Cookie extends DessertItem {
         this.setCookieQty(cookieQty);
         this.pricePerDozen = 0;
         this.setPricePerDozen(pricePerDozen);
+        this.setPackaging("Box");
     }
 
     /**
@@ -113,10 +115,12 @@ public class Cookie extends DessertItem {
 
     @Override
     public String toString() {
-        String line1 = getName();
+        String line1Pt1 = getName();
+        String line1Pt2 = getPackaging();
         String line2Pt1 = String.format("%d cookies @ $%.2f/lb.:", getCookieQty(), getPricePerDozen());
         String line2Pt2 = String.format("$%.2f", calculateCost());
         String line2Pt3 = String.format("[Tax: $%.2f]", calculateTax(calculateCost()));
-        return String.format("%s\n\t%-45s%s%17s", line1, line2Pt1, line2Pt2, line2Pt3);
+        return String.format("%s (%s)\n\t%-45s%s%17s", line1Pt1, line1Pt2, line2Pt1, line2Pt2, line2Pt3);
     }
+
 }

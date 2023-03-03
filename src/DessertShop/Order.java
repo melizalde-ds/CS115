@@ -10,9 +10,10 @@ package DessertShop;
 
 import java.util.ArrayList;
 
-public class Order {
+public class Order implements Payable{
     // Class variable
     private ArrayList<DessertItem> order;
+    private PayType payMethod;
 
     /**
      * Constructor Order()
@@ -23,6 +24,7 @@ public class Order {
      */
     public Order() {
         order = new ArrayList<DessertItem>();
+        this.payMethod = PayType.CASH;
     }
 
     /**
@@ -85,5 +87,16 @@ public class Order {
         }
         finalOutput += "----------------------------------------------------------------------------";
         return finalOutput;
+    }
+
+    @Override
+    public void setPayType(PayType pT) {
+        this.payMethod = pT;
+        
+    }
+
+    @Override
+    public PayType getPayType() {
+        return this.payMethod;
     }
 }

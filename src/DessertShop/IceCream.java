@@ -23,6 +23,7 @@ public class IceCream extends DessertItem {
         super("IceCream");
         this.scoopCount = 0;
         this.pricePerScoop = 0;
+        this.setPackaging("");
     }
 
     /**
@@ -41,6 +42,7 @@ public class IceCream extends DessertItem {
         this.setScoopCount(scoopCount);
         this.pricePerScoop = 0;
         this.setPricePerScoop(pricePerScoop);
+        this.setPackaging("Bowl");
     }
 
     /**
@@ -112,10 +114,12 @@ public class IceCream extends DessertItem {
 
     @Override
     public String toString() {
-        String line1 = getName();
+        String line1Pt1 = getName();
+        String line1Pt2 = getPackaging();
         String line2Pt1 = String.format("%d scoops @ $%.2f/scoop:", getScoopCount(), getPricePerScoop());
         String line2Pt2 = String.format("$%.2f", calculateCost());
         String line2Pt3 = String.format("[Tax: $%.2f]", calculateTax(calculateCost()));
-        return String.format("%s\n\t%-45s%s%17s", line1, line2Pt1, line2Pt2, line2Pt3);
+        return String.format("%s (%s)\n\t%-45s%s%17s", line1Pt1, line1Pt2, line2Pt1, line2Pt2, line2Pt3);
     }
+
 }

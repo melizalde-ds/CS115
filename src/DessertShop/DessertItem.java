@@ -8,10 +8,11 @@
 */
 package DessertShop;
 
-public abstract class DessertItem {
+public abstract class DessertItem implements Packaging, Comparable<DessertItem>{
     // Class attributes
     private String name;
     private double taxPercent = 7.25;
+    private String packaging;
 
     /**
      * Constructor Name: DessertItem()
@@ -101,5 +102,27 @@ public abstract class DessertItem {
      */
     public double calculateTax(double cost) {
         return (taxPercent / 100) * cost;
+    }
+
+    @Override
+    public String getPackaging() {
+        return packaging;
+    }
+
+    @Override
+    public void setPackaging(String packaging) {
+        this.packaging = packaging;
+    }
+
+    @Override
+    public int compareTo(DessertItem o) {
+        double cost = o.calculateCost();
+        if (this.calculateCost() < cost ) {
+            return -1;
+        } if (this.calculateCost() > cost) {
+            return 1;
+        } else {
+            return 0;
+        }
     }
 }

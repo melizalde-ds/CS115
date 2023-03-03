@@ -8,6 +8,8 @@
 */
 package DessertShop;
 
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Scanner;
 
 public abstract class DessertShop {
@@ -16,6 +18,7 @@ public abstract class DessertShop {
         Order order1 = new Order();
         double orderTotal = 0;
         double totalTax = 0;
+        String paymentMethod;
 
         Scanner sIn = new Scanner(System.in);
         String choice;
@@ -63,6 +66,31 @@ public abstract class DessertShop {
         } // end of while (!done)
         System.out.println("\n");
 
+        boolean payDone = false;
+        while (!payDone) {
+            System.out.print("What form of payment will be used? (CASH, CARD, PHONE): ");
+            paymentMethod = sIn.nextLine();
+            for (Payable.PayType type : Payable.PayType.values()) {
+                if (paymentMethod.equals(type.name())) {
+                    switch (paymentMethod) {
+                        case "CASH":
+                            order1.setPayType(type);
+                            break;
+                        case "CARD":
+                            order1.setPayType(type);
+                            break;
+                        case "PHONE":
+                            order1.setPayType(type);
+                            break;
+                    }
+                    payDone = true;
+                }
+            }
+            if (!payDone) {
+                System.out.println("That's not a valid form of payment.\n");
+            }
+        }
+
         // Adds objects to the class
         order1.add(new Candy("Candy Corn", 1.5, .25));
         order1.add(new Candy("Gummy Bears", .25, .35));
@@ -71,6 +99,7 @@ public abstract class DessertShop {
         order1.add(new Sundae("Vanilla", 3, .69, "Hot Fudge", 1.29));
         order1.add(new Cookie("Oatmeal Raisin", 2, 3.45));
 
+        Collections.sort(order1.getOrder());
         // Prints them to the console
         for (int i = 0; i < order1.itemCount(); i++) {
             double totalCost = order1.getOrder().get(i).calculateCost();
@@ -78,7 +107,7 @@ public abstract class DessertShop {
             double tax = order1.getOrder().get(i).calculateTax(totalCost);
             totalTax += tax;
         }
-        
+
         System.out.println(order1);
         System.out.println("Total number of items in order: " +
                 order1.itemCount());
@@ -86,6 +115,7 @@ public abstract class DessertShop {
                 orderTotal, totalTax);
         System.out.printf("%-53s$%-8.2f\n", "Order Total:", orderTotal + totalTax);
         System.out.println("----------------------------------------------------------------------------");
+        System.out.println("Paid for with "+order1.getPayType());
     }
 
     private static DessertItem userPromptCandy() {

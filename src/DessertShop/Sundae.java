@@ -24,6 +24,7 @@ public class Sundae extends IceCream {
         this.setName("Sundae");
         this.toppingName = "Topping";
         this.toppingPrice = 0;
+        this.setPackaging("");
     }
 
     /**
@@ -44,6 +45,7 @@ public class Sundae extends IceCream {
         this.setToppingName(toppingName);
         this.toppingPrice = 0;
         this.setToppingPrice(toppingPrice);
+        this.setPackaging("Boat");
     }
 
     /**
@@ -107,11 +109,13 @@ public class Sundae extends IceCream {
 
     @Override
     public String toString() {
-        String line1 = getName();
+        String line1Pt1 = getName();
+        String line1Pt2 = getPackaging();
         String line2 = String.format("%d scoops @ $%.2f/scoop:", getScoopCount(), getPricePerScoop());
         String line3Pt1 = String.format("%s topping @ $%.2f:", getToppingName(), getToppingPrice());
         String line3Pt2 = String.format("$%.2f", calculateCost());
         String line3Pt3 = String.format("[Tax: $%.2f]", calculateTax(calculateCost()));
-        return String.format("%s\n\t%s\n\t%-45s%s%17s", line1, line2, line3Pt1, line3Pt2, line3Pt3);
+        return String.format("%s (%s)\n\t%s\n\t%-45s%s%17s", line1Pt1, line1Pt2, line2, line3Pt1, line3Pt2, line3Pt3);
     }
+
 }

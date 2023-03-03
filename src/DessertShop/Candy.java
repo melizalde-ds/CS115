@@ -24,6 +24,7 @@ public class Candy extends DessertItem {
         super("Candy");
         candyWeight = 0;
         pricePerPound = 0;
+        setPackaging("");
     }
 
     /**
@@ -42,6 +43,7 @@ public class Candy extends DessertItem {
         this.setCandyWeight(candyWeight);
         this.pricePerPound = 0;
         this.setPricePerPound(pricePerPound);
+        this.setPackaging("Bag");
     }
 
     /**
@@ -113,10 +115,12 @@ public class Candy extends DessertItem {
 
     @Override
     public String toString() {
-        String line1 = getName();
-        String line2Pt1 = String.format("%.2f lbs. @ $%.2f/dozen:", getCandyWeight(),getPricePerPound());
+        String line1Pt1 = getName();
+        String line1Pt2 = getPackaging();
+        String line2Pt1 = String.format("%.2f lbs. @ $%.2f/dozen:", getCandyWeight(), getPricePerPound());
         String line2Pt2 = String.format("$%.2f", calculateCost());
         String line2Pt3 = String.format("[Tax: $%.2f]", calculateTax(calculateCost()));
-        return String.format("%s\n\t%-45s%s%17s", line1, line2Pt1, line2Pt2, line2Pt3);
+        return String.format("%s (%s)\n\t%-45s%s%17s", line1Pt1, line1Pt2, line2Pt1, line2Pt2, line2Pt3);
     }
+
 }
